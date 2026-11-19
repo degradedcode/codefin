@@ -54,8 +54,14 @@ h1, h2, h3,
     color: var(--cf-green);
 }
 
-/* Cards: square corners, hairline borders */
-.cardBox,
+/* Cards: square corners, one hairline border on the innermost card only.
+   The outer .cardBox wrapper is left transparent to avoid a double frame. */
+.cardBox {
+    border: none !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+}
+
 .card,
 .listItem,
 .paper-card {
@@ -64,7 +70,6 @@ h1, h2, h3,
     background: var(--cf-panel);
 }
 
-.cardBox:hover,
 .card:hover {
     border-color: var(--cf-green);
 }
