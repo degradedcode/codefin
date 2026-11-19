@@ -62,6 +62,12 @@ h1, h2, h3,
     border-radius: 0 !important;
 }
 
+/* Centre the image block inside the card so it lines up with the centred title */
+.cardScalable {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
 .card,
 .listItem,
 .paper-card {
