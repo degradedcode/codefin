@@ -125,6 +125,18 @@ h1, h2, h3,
     outline: none;
 }
 
+/* Played badge and progress bar: use the theme green instead of Jellyfin blue */
+.playedIndicator {
+    background: var(--cf-green) !important;
+    color: var(--cf-bg) !important;
+    border-radius: 0 !important;
+}
+
+.itemProgressBar,
+.itemProgressBarForeground {
+    background-color: var(--cf-green) !important;
+}
+
 /* Links */
 a {
     color: var(--cf-blue);
