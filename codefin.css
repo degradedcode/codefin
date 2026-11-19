@@ -137,6 +137,23 @@ h1, h2, h3,
     background-color: var(--cf-green) !important;
 }
 
+/* Mark-played check button on cards (selector matched by its title text, unverified) */
+[title*="played" i],
+[title*="played" i] .material-icons,
+[title*="played" i] i,
+[title*="played" i] svg {
+    color: var(--cf-green) !important;
+    fill: var(--cf-green) !important;
+}
+
+/* Top-left logo: tinted to the theme green (guessed selectors, unverified).
+   The filter approximates #3fb950 and works best on single-colour logos. */
+.headerLogo img,
+.headerLogoImage,
+.pageTitleWithLogo img {
+    filter: brightness(0) saturate(100%) invert(68%) sepia(40%) saturate(900%) hue-rotate(78deg) brightness(95%) !important;
+}
+
 /* Links */
 a {
     color: var(--cf-blue);
