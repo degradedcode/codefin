@@ -1,1 +1,130 @@
+/* ==========================================================================
+   codefin — a quiet, terminal-flavoured theme for Jellyfin
+   Paste into: Dashboard → General → Custom CSS
+   ========================================================================== */
 
+:root {
+    --cf-bg: #0d1117;
+    --cf-panel: #161b22;
+    --cf-border: #30363d;
+    --cf-text: #c9d1d9;
+    --cf-muted: #8b949e;
+    --cf-green: #3fb950;
+    --cf-blue: #58a6ff;
+    --cf-mono: ui-monospace, "JetBrains Mono", "Fira Code", Consolas, "Liberation Mono", monospace;
+}
+
+/* Base */
+body {
+    background: var(--cf-bg);
+    color: var(--cf-text);
+}
+
+::selection {
+    background: rgba(63, 185, 80, 0.3);
+    color: #ffffff;
+}
+
+:focus-visible {
+    outline: 1px solid var(--cf-green);
+    outline-offset: 2px;
+}
+
+/* Header and navigation */
+.skinHeader {
+    background: var(--cf-bg);
+    border-bottom: 1px solid var(--cf-border);
+}
+
+.skinHeader .headerButton,
+.navMenuOption {
+    font-family: var(--cf-mono);
+}
+
+/* Headings get a shell-style prompt */
+h1, h2, h3,
+.sectionTitle {
+    font-family: var(--cf-mono);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.sectionTitle::before {
+    content: "> ";
+    color: var(--cf-green);
+}
+
+/* Cards: square corners, hairline borders */
+.cardBox,
+.card,
+.listItem,
+.paper-card {
+    border-radius: 0 !important;
+    border: 1px solid var(--cf-border);
+    background: var(--cf-panel);
+}
+
+.cardBox:hover,
+.card:hover {
+    border-color: var(--cf-green);
+}
+
+.cardText {
+    font-family: var(--cf-mono);
+}
+
+.itemName,
+.cardText-first {
+    color: var(--cf-text);
+}
+
+.cardText-secondary,
+.secondaryText {
+    color: var(--cf-muted);
+}
+
+/* Buttons and inputs */
+.emby-button,
+.raised,
+.detailButton {
+    font-family: var(--cf-mono);
+    border-radius: 0 !important;
+    text-transform: lowercase;
+    border: 1px solid var(--cf-border);
+    background: var(--cf-panel);
+    color: var(--cf-text);
+    transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.emby-button:hover,
+.raised:hover,
+.detailButton:hover {
+    border-color: var(--cf-green);
+    color: var(--cf-green);
+}
+
+.emby-input,
+.emby-select,
+.emby-textarea {
+    font-family: var(--cf-mono);
+    border-radius: 0 !important;
+    background: var(--cf-bg);
+    border: 1px solid var(--cf-border);
+    color: var(--cf-text);
+}
+
+.emby-input:focus,
+.emby-select:focus,
+.emby-textarea:focus {
+    border-color: var(--cf-blue);
+    outline: none;
+}
+
+/* Links */
+a {
+    color: var(--cf-blue);
+}
+
+a:hover {
+    color: var(--cf-green);
+}
