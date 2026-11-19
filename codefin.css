@@ -146,11 +146,9 @@ h1, h2, h3,
     fill: var(--cf-green) !important;
 }
 
-/* Top-left logo: tinted to the theme green (guessed selectors, unverified).
-   The filter approximates #3fb950 and works best on single-colour logos. */
-.headerLogo img,
-.headerLogoImage,
-.pageTitleWithLogo img {
+/* Top-left logo: solid theme green. Matches the hashed icon file name,
+   so it survives Jellyfin's cache-busting. The filter approximates #3fb950. */
+img[src*="icon-transparent"] {
     filter: brightness(0) saturate(100%) invert(68%) sepia(40%) saturate(900%) hue-rotate(78deg) brightness(95%) !important;
 }
 
