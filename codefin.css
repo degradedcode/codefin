@@ -158,14 +158,6 @@ img[src*="icon-transparent"] {
     filter: brightness(0) saturate(100%) invert(68%) sepia(40%) saturate(900%) hue-rotate(78deg) brightness(95%) !important;
 }
 
-/* Play button on cards: drop the dark disc so only the ring shows */
-.cardOverlayFab-primary,
-.cardOverlayFab-primary::before,
-.cardOverlayFab-primary::after {
-    background: transparent !important;
-    box-shadow: none !important;
-}
-
 /* Links */
 a {
     color: var(--cf-blue);
