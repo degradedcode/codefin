@@ -64,6 +64,11 @@ header.MuiAppBar-root:empty {
     display: none !important;
 }
 
+/* Jellyfin sets the OSD header to position: relative, which breaks the floating header's right edge */
+.skinHeader-withBackground.osdHeader {
+    position: fixed !important;
+}
+
 /* Long titles shrink with an ellipsis so the right-hand buttons stay on screen */
 .headerTop,
 .headerLeft {
