@@ -75,10 +75,6 @@ header.MuiAppBar-root:empty {
     min-width: 0;
 }
 
-.headerLeft {
-    overflow: hidden;
-}
-
 .pageTitle {
     min-width: 0;
     overflow: hidden;
