@@ -59,6 +59,11 @@ body {
     padding-bottom: 6px !important;
 }
 
+/* Hide the empty MUI app bar that renders as a stray bar under the desktop title bar */
+header.MuiAppBar-root:empty {
+    display: none !important;
+}
+
 /* Push page content below the floating top bar (pages are absolutely positioned) */
 .mainAnimatedPage {
     top: 80px !important;
