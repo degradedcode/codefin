@@ -1,0 +1,348 @@
+/* ==========================================================================
+   sleek — a quiet graphite theme for Jellyfin
+   Paste the whole file into: Dashboard → General → Custom CSS
+   ========================================================================== */
+
+:root {
+    --sl-bg: #0c0c0e;
+    --sl-surface: #16161a;
+    --sl-raised: #1f1f25;
+    --sl-line: rgba(255, 255, 255, 0.07);
+    --sl-text: #ececf1;
+    --sl-muted: #8a8a96;
+    --sl-accent: #8ab4ff;
+    --sl-gradient: linear-gradient(105deg, #9d5cc8 0%, #0aa6dc 100%);
+    --sl-radius: 10px;
+}
+
+/* ===== Base ===== */
+
+body {
+    background-color: var(--sl-bg);
+    color: var(--sl-text);
+}
+
+::selection {
+    background: rgba(138, 180, 255, 0.25);
+}
+
+:focus-visible {
+    outline: 2px solid var(--sl-accent);
+    outline-offset: 2px;
+}
+
+/* Thin, quiet scrollbars */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--sl-line) transparent;
+}
+
+/* ===== Header ===== */
+
+.skinHeader,
+.MuiAppBar-root {
+    background-color: var(--sl-bg) !important;
+    background-image: linear-gradient(105deg, rgba(157, 92, 200, 0.06), rgba(10, 166, 220, 0.06)) !important;
+    box-shadow: none !important;
+    border: 1px solid var(--sl-line) !important;
+    border-radius: var(--sl-radius) !important;
+    top: 12px !important;
+    left: 16px !important;
+    right: 16px !important;
+    width: auto !important;
+    margin: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    box-sizing: border-box;
+    overflow: visible !important;
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+}
+
+/* Push page content below the floating top bar (pages are absolutely positioned) */
+.mainAnimatedPage {
+    top: 80px !important;
+}
+
+/* Library pills (Shows, Movies, ...): faint logo-gradient wash */
+.emby-button.homeLibraryButton,
+.raised.homeLibraryButton {
+    background-image: linear-gradient(105deg, rgba(157, 92, 200, 0.08), rgba(10, 166, 220, 0.08)) !important;
+    border-radius: var(--sl-radius) !important;
+}
+
+.emby-button.homeLibraryButton:hover,
+.raised.homeLibraryButton:hover {
+    background-image: linear-gradient(105deg, rgba(157, 92, 200, 0.35), rgba(10, 166, 220, 0.35)) !important;
+    color: var(--sl-text) !important;
+}
+
+/* Clicked / focused: keep the resting look instead of Jellyfin's solid accent fill */
+.emby-button.homeLibraryButton:focus,
+.emby-button.homeLibraryButton:active,
+.raised.homeLibraryButton:focus,
+.raised.homeLibraryButton:active {
+    background-color: #424242 !important;
+    background-image: linear-gradient(105deg, rgba(157, 92, 200, 0.6), rgba(10, 166, 220, 0.6)) !important;
+    color: var(--sl-text) !important;
+    outline: none;
+}
+
+/* ===== Typography ===== */
+
+h1, h2, h3, h4, h5, h6,
+.sectionTitle {
+    font-weight: 600;
+    letter-spacing: -0.015em;
+}
+
+.secondaryText,
+.cardText-secondary {
+    color: var(--sl-muted);
+}
+
+/* ===== Cards ===== */
+
+.card,
+.listItem,
+.MuiCard-root,
+.MuiPaper-root {
+    background-color: var(--sl-surface) !important;
+    border: 1px solid var(--sl-line);
+    border-radius: var(--sl-radius) !important;
+    box-shadow: none !important;
+    overflow: hidden;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Keep poster images inside the rounded corners */
+.card img,
+.cardImageContainer,
+.MuiCardMedia-root {
+    border-radius: calc(var(--sl-radius) - 1px) calc(var(--sl-radius) - 1px) 0 0;
+}
+
+/* Very faint logo-gradient wash over the card surface */
+.card {
+    background-image: linear-gradient(105deg, rgba(157, 92, 200, 0.06), rgba(10, 166, 220, 0.06)) !important;
+}
+
+.card:hover,
+.MuiCard-root:hover {
+    border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* Row scroll arrows sit in the section heading, clear of the card tops */
+.emby-scrollbuttons {
+    transform: translateY(-14px);
+}
+
+/* Row scroll arrows stay above card artwork and don't get a filled background */
+.emby-scrollbuttons-button {
+    position: relative;
+    z-index: 5;
+    background: transparent !important;
+}
+
+.emby-scrollbuttons-button:hover,
+.emby-scrollbuttons-button:focus-visible {
+    background: var(--sl-gradient) !important;
+    color: var(--sl-bg) !important;
+    box-shadow: 0 0 0 6px rgba(138, 180, 255, 0.18);
+}
+
+.cardBox {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Remove the gap around the poster inside a card (keep the bottom spacing for the title) */
+.card > .cardBox {
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Space between cards (margin only; don't set width, which breaks Jellyfin's poster sizing) */
+.card {
+    margin: 0 10px 20px !important;
+}
+
+/* ===== Hover play button: same translucent disc as Jellyfin, in the logo gradient ===== */
+
+/* Play disc on hover: solid gradient with a dark glyph, matching the row arrows */
+.card .cardOverlayButton:has(.play_arrow):hover {
+    background: var(--sl-gradient) !important;
+}
+
+.card .cardOverlayButton:has(.play_arrow):hover .cardOverlayButtonIcon {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Nudge the heart glyph down so it sits level with the check and more icons */
+.card .cardOverlayButtonIcon.favorite {
+    transform: translateY(2px);
+}
+
+/* Center the icon glyphs inside each disc */
+.card .cardOverlayButtonIcon {
+    line-height: 1 !important;
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Resting: lightly tinted. Hovering the disc: fully saturated. */
+.card .cardOverlayButton {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(105deg, rgba(157, 92, 200, 0.4), rgba(10, 166, 220, 0.4)) !important;
+    transform: scale(0.85);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.card .cardOverlayButton:hover {
+    background: linear-gradient(105deg, rgba(157, 92, 200, 0.9), rgba(10, 166, 220, 0.9)) !important;
+}
+
+/* Play button: remove the dark disc behind the ring (the ring and glyph stay) */
+.card .cardOverlayFab-primary,
+.card .cardOverlayFab-primary::before,
+.card .cardOverlayFab-primary::after {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* ===== Progress ===== */
+
+.itemProgressBar {
+    background-color: var(--sl-line) !important;
+}
+
+.itemProgressBarForeground {
+    background: var(--sl-gradient) !important;
+}
+
+.playedIndicator {
+    background: var(--sl-gradient) !important;
+    color: var(--sl-bg) !important;
+    border-radius: 999px !important;
+}
+
+/* ===== Buttons ===== */
+
+.emby-button,
+.raised,
+.detailButton,
+.MuiButton-root {
+    border-radius: 999px !important;
+    text-transform: none !important;
+    box-shadow: none !important;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* Hover: text color only, so section headings (also emby-button) don't turn into pills */
+.emby-button:hover,
+.raised:hover,
+.detailButton:hover {
+    color: var(--sl-accent) !important;
+}
+
+/* ===== Tab switcher (Home / Favourites): frosted pill with a white active pill ===== */
+
+.emby-tabs-slider,
+.MuiTabs-root {
+    display: inline-flex;
+    width: auto !important;
+    padding: 4px;
+    border: none !important;
+    border-radius: 999px;
+    background: rgba(20, 20, 24, 0.55) !important;
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    box-shadow: none !important;
+}
+
+.emby-tab-button,
+.MuiTab-root {
+    border: none !important;
+    border-radius: 999px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: var(--sl-muted) !important;
+    text-transform: none !important;
+    font-weight: 600;
+    padding: 0.4em 1.2em !important;
+    min-height: 0 !important;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.emby-tab-button-active,
+.MuiTab-root.Mui-selected {
+    background: #ffffff !important;
+    color: #111114 !important;
+}
+
+.MuiTabs-indicator {
+    display: none !important;
+}
+
+/* ===== Forms ===== */
+
+.emby-input,
+.emby-select,
+.emby-textarea,
+.MuiInputBase-root {
+    background-color: var(--sl-raised) !important;
+    border: 1px solid var(--sl-line) !important;
+    border-radius: 8px !important;
+    color: var(--sl-text);
+}
+
+.emby-input:focus,
+.emby-select:focus,
+.emby-textarea:focus {
+    border-color: var(--sl-accent) !important;
+    outline: none;
+}
+
+/* ===== Image editor search results: square-cornered artwork inside the card ===== */
+
+.imageEditorCard,
+.imageEditorCard .cardBox,
+.imageEditorCard .cardContent,
+.imageEditorCard .cardImageContainer {
+    border-radius: 0 !important;
+    overflow: hidden;
+}
+
+.imageEditorCard {
+    border-radius: var(--sl-radius) !important;
+}
+
+/* ===== Action menus: plain rows, no pills or borders ===== */
+
+.actionSheet .emby-button,
+.actionSheet .listItem,
+.actionSheetMenuItem,
+.actionSheetMenuItem.listItem,
+.dialog .actionSheetMenuItem {
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* ===== Links ===== */
+
+a {
+    color: var(--sl-text);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--sl-accent);
+}
