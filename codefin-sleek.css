@@ -59,6 +59,33 @@ body {
     padding-bottom: 6px !important;
 }
 
+/* Hide the empty MUI app bar that renders as a stray bar under the desktop title bar */
+header.MuiAppBar-root:empty {
+    display: none !important;
+}
+
+/* Jellyfin sets the OSD header to position: relative, which breaks the floating header's right edge */
+.skinHeader-withBackground.osdHeader {
+    position: fixed !important;
+}
+
+/* Long titles shrink with an ellipsis so the right-hand buttons stay on screen */
+.headerTop,
+.headerLeft {
+    min-width: 0;
+}
+
+.pageTitle {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.headerRight {
+    flex-shrink: 0;
+}
+
 /* Push page content below the floating top bar (pages are absolutely positioned) */
 .mainAnimatedPage {
     top: 80px !important;
