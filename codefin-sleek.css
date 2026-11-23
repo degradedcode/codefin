@@ -234,10 +234,11 @@ h1, h2, h3, h4, h5, h6,
     background: linear-gradient(105deg, rgba(157, 92, 200, 0.9), rgba(10, 166, 220, 0.9)) !important;
 }
 
-/* Play button: remove the dark disc behind the ring (the ring and glyph stay) */
-.card .cardOverlayFab-primary,
-.card .cardOverlayFab-primary::before,
-.card .cardOverlayFab-primary::after {
+/* Play button: remove the dark disc behind the ring (the ring and glyph stay).
+   Matches on title="Play" so it works on layouts that don't use cardOverlayFab-primary, such as the Android app. */
+.card button[title="Play"],
+.card button[title="Play"]::before,
+.card button[title="Play"]::after {
     background: transparent !important;
     box-shadow: none !important;
 }
