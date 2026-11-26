@@ -364,6 +364,24 @@ h1, h2, h3, h4, h5, h6,
     transform: none !important;
 }
 
+/* ===== Video seek bar: thinner track, sleek gradient on the played part and the thumb ===== */
+
+.sliderContainer:has(.osdPositionSlider) .mdl-slider-background-flex {
+    height: 0.3em;
+}
+
+.sliderContainer:has(.osdPositionSlider) .mdl-slider-background-lower {
+    background: var(--sl-gradient) !important;
+}
+
+.osdPositionSlider::-webkit-slider-thumb {
+    background: var(--sl-gradient) !important;
+}
+
+.osdPositionSlider::-moz-range-thumb {
+    background: var(--sl-gradient) !important;
+}
+
 /* ===== Links ===== */
 
 a {
