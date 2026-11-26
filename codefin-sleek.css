@@ -382,6 +382,31 @@ h1, h2, h3, h4, h5, h6,
     background: var(--sl-gradient) !important;
 }
 
+/* ===== Desktop player: keep the floating bar inside the window ===== */
+
+/* Keep the floating bar inside the window. Stops the overflow scrollbar
+   and the right edge touching in the desktop player's older engine */
+.skinHeader, .MuiAppBar-root {
+  left: 16px !important;
+  right: 16px !important;
+  width: calc(100% - 32px) !important;
+  max-width: calc(100% - 32px) !important;
+  overflow: hidden !important;
+}
+.skinHeader .headerTop { overflow: hidden !important; }
+
+/* Strip Codefin's styling from the outer app bar so only the inner bar,
+   which auto-hides, is visible during playback */
+.transparentDocument .MuiAppBar-root,
+.MuiAppBar-root.MuiAppBar-colorTransparent {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
 /* ===== Links ===== */
 
 a {
