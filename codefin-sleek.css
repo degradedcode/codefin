@@ -49,14 +49,31 @@ body {
     top: 12px !important;
     left: 16px !important;
     right: 16px !important;
-    width: auto !important;
+    width: calc(100% - 32px) !important;
+    max-width: calc(100% - 32px) !important;
     margin: 0 !important;
     height: auto !important;
     min-height: 0 !important;
     box-sizing: border-box;
-    overflow: visible !important;
+    overflow: hidden !important;
     padding-top: 6px !important;
     padding-bottom: 6px !important;
+}
+
+.skinHeader .headerTop {
+    overflow: hidden !important;
+}
+
+/* Player: the transparent outer AppBar gets no background, border or padding,
+   so only the inner bar (which auto-hides) is visible while video plays */
+.transparentDocument .MuiAppBar-root,
+.MuiAppBar-root.MuiAppBar-colorTransparent {
+    background: transparent !important;
+    background-image: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 /* Hide the empty MUI app bar that renders as a stray bar under the desktop title bar */
@@ -380,31 +397,6 @@ h1, h2, h3, h4, h5, h6,
 
 .osdPositionSlider::-moz-range-thumb {
     background: var(--sl-gradient) !important;
-}
-
-/* ===== Desktop player: keep the floating bar inside the window ===== */
-
-/* Keep the floating bar inside the window. Stops the overflow scrollbar
-   and the right edge touching in the desktop player's older engine */
-.skinHeader, .MuiAppBar-root {
-  left: 16px !important;
-  right: 16px !important;
-  width: calc(100% - 32px) !important;
-  max-width: calc(100% - 32px) !important;
-  overflow: hidden !important;
-}
-.skinHeader .headerTop { overflow: hidden !important; }
-
-/* Strip Codefin's styling from the outer app bar so only the inner bar,
-   which auto-hides, is visible during playback */
-.transparentDocument .MuiAppBar-root,
-.MuiAppBar-root.MuiAppBar-colorTransparent {
-  background: transparent !important;
-  background-image: none !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
 }
 
 /* ===== Links ===== */
