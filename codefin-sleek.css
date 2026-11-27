@@ -176,6 +176,13 @@ h1, h2, h3, h4, h5, h6,
     border-color: rgba(255, 255, 255, 0.16);
 }
 
+/* List view: episode and movie thumbnails at 16:9 instead of Jellyfin's taller box.
+   Browsers without aspect-ratio support (Chrome 87) keep Jellyfin's default size. */
+.listItemImage-large {
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+}
+
 /* Row scroll arrows sit in the section heading, clear of the card tops */
 .emby-scrollbuttons {
     transform: translateY(-14px);
